@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="pink" type="button">Pink</button>
+    <button id="green" type="button">Green</button>
+    <button id="blue" type="button">Blue</button>
+</body>
+<script>
+    const setColor = (color) => {
+        document.body.style.background = color
+    }
+    document.getElementById('pink').addEventListener('click', () => setColor('#0fff42'));
+    document.getElementById('blue').addEventListener('click', () => setColor('#0ee493'));
+    document.getElementById('green').addEventListener('click', () => setColor('#034f35'));
+</script>
+</html>

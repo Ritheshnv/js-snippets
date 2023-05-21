@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="stops">Next Stop</button>
+</body>
+<script>
+    function* trainStops() {
+        yield 'Osterley'
+        yield 'Hounslow East'
+        yield 'Hounslow Central'
+        yield 'Hounslow West'
+        yield 'Hatton Cross'
+        yield 'Heathrow terminal 2'
+        yield 'Heathrow terminal 4'
+    }
+    const nycTrainline = trainStops();
+    const el = document.querySelector('#stops');
+    el.addEventListener('click', () => {
+        let currStop = nycTrainline.next();
+        if(currStop.done) {
+            console.log('Reached my stop');
+            el.setAttribute('disabled', true);
+        } else {
+            console.log(currStop.value);
+        }
+    })
+</script>
+</html>

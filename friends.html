@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="friends"></div>
+</body>
+<script>
+    const API = 'https://randomuser.me/api/?results=5'
+
+    const fetchFriends = async () => {
+        const resp = await fetch(API);
+        const data = await resp.json();
+
+        const el = document.querySelector('#friends');
+
+        data.results.forEach(element => {
+            const img = document.createElement('img');
+            const pic = img.setAttribute('src', element.picture.large);
+            el.appendChild(img);
+        });
+    }
+
+    fetchFriends();
+</script>
+
+</html>
